@@ -63,8 +63,7 @@ function checkInventory(purchaseID, purchaseQuantity) {
     var price = results[0].price;
 
     if (availableQuantity < purchaseQuantity) {
-      console.log("Insufficient Quantity!");
-      showProducts();
+      lowQuantity();
     }
 
     else {
@@ -93,5 +92,27 @@ function updateInventory(purchaseID, newQuantity, totalPrice) {
       console.log("Your total price is $" + totalPrice + ".");
 
   });
+};
+
+function lowQuantity() {
+    inquirer
+      .prompt([
+        {
+          name: "tryAgain",
+          type: "rawlist",
+          message: "Insufficient quantity! Would you like to try again?",
+          choices: ["Yes", "No"]
+        }
+      ]).then(function(answer) {
+        if (answer.tryAgain === "Yes") {
+          showProducts();
+        }
+        else {
+          console.log("Okay. Come back again!")
+        };
+
+      });
+
+
 };
 
