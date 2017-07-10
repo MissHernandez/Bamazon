@@ -62,6 +62,7 @@ function viewProducts() {
      		};
     	};
 	});
+  menuOptions();
 };
 
 
@@ -79,7 +80,6 @@ function viewLowInventory() {
      		};
     	};
 	});
-
 };
 
 

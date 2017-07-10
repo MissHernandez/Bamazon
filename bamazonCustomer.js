@@ -69,7 +69,7 @@ function checkInventory(purchaseID, purchaseQuantity) {
 
     else {
       var newQuantity = availableQuantity - purchaseQuantity;
-      totalPrice = price * purchaseQuantity;
+      totalPrice = (price * purchaseQuantity).toFixed(2);
 
       updateInventory(purchaseID, newQuantity, totalPrice);
       
@@ -90,7 +90,7 @@ function updateInventory(purchaseID, newQuantity, totalPrice) {
      item_id: purchaseID
     }], function (err, results) {
 
-      console.log("Your total price is $" + totalPrice);
+      console.log("Your total price is $" + totalPrice + ".");
 
   });
 };
